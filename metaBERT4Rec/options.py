@@ -53,7 +53,7 @@ parser.add_argument('--acto_size', type=int, default=4170)
 parser.add_argument('--train_negative_sampler_code', type=str, default='random', choices=['popular', 'random'],
                     help='Method to sample negative items for training. Not used in bert')
 parser.add_argument('--train_negative_sample_size', type=int, default=100)
-parser.add_argument('--train_negative_sampling_seed', type=int, default=87654)#None
+parser.add_argument('--train_negative_sampling_seed', type=int, default=87654)
 parser.add_argument('--test_negative_sampler_code', type=str, default='random', choices=['popular', 'random'],
                     help='Method to sample negative items for evaluation')
 parser.add_argument('--test_negative_sample_size', type=int, default=100)
@@ -62,13 +62,13 @@ parser.add_argument('--test_negative_sampling_seed', type=int, default=87654)
 ################
 # Trainer
 ################
-parser.add_argument('--export', type=str, default='experiment/test/alltest')
-parser.add_argument('--load', type=str, default=None)#'experiment/test3/test_kga/models/best_acc_model.pth')
+parser.add_argument('--export', type=str, default='experiment/test/test_cold')
+parser.add_argument('--load', type=str, default=None)#'experiment/test/test_kga/models/best_acc_model.pth')
 parser.add_argument('--full', type=int, default=0)
 parser.add_argument('--kg', type=int, default=0)
 parser.add_argument('--mlm', type=int, default=0)
-parser.add_argument('--ifpre', type=int, default=1)
-parser.add_argument('--cold', type=int, default=0)
+parser.add_argument('--ifpre', type=int, default=0)
+parser.add_argument('--cold', type=int, default=1)
 
 parser.add_argument('--trainer_code', type=str, default='bert', choices=TRAINERS.keys())
 # device #
