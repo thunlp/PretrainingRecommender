@@ -5,7 +5,6 @@ def set_template(args):
     elif args.template.startswith('train_bert'):
         args.mode = 'train'
 
-        #args.dataset_code = 'ml-' + input('Input 1 for ml-1m, 20 for ml-20m: ') + 'm'
         args.dataset_code = 'ml-1m'
         args.min_rating = 0 if args.dataset_code == 'ml-1m' else 4
         args.min_uc = 5
@@ -34,14 +33,14 @@ def set_template(args):
         args.enable_lr_schedule = True
         args.decay_step = 25
         args.gamma = 1.0
-        #args.num_epochs = 30 if args.dataset_code == 'ml-1m' else 200
+        #args.num_epochs = 100 if args.dataset_code == 'ml-1m' else 200
         if args.ifpre:
             args.num_epochs = 65
         elif args.cold:
-            args.num_epochs = 10#10
+            args.num_epochs = 10
         else:
             args.num_epochs = 35
-        args.metric_ks = [1, 5, 10]#, 20, 50, 100]
+        args.metric_ks = [1, 5, 10]
         args.best_metric = 'NDCG@10'
 
         args.model_code = 'bert'
@@ -51,7 +50,7 @@ def set_template(args):
         args.bert_hidden_units = 128
         args.bert_mask_prob = 0.15
         args.bert_max_len = 100
-        args.bert_num_blocks = 6#2
+        args.bert_num_blocks = 6
         args.bert_num_heads = 4
     
     elif args.template.startswith('train_dae'):
