@@ -156,7 +156,7 @@ class AbstractDataset(metaclass=ABCMeta):
                 if us in user2items:
                     st = 0
                     if self.args.cold:
-                        st = -10
+                        st = -15
                     if len(user2items[us])>6:
                         tg = True
                         items = user2items[us]
