@@ -19,3 +19,17 @@ Set your parameters in `options.py`
 
 Switch to caser_pytorch/ directory.
 
+Preprocessed data is in datasets/newdat/, where a_train(&eval&test).txt stands for ML-1m-src and c_train(&eval&test).txt stands for ML-1m-tgt.
+
+Several arguments are the same as BERT4Rec, including `--kg`, `--export `, `--load` and `--full`. e.g. For mask learning:
+
+```
+python mlm_train.py --kg 1 --train_root 'datasets/newdat/a_train.txt --eval_root 'datasets/newdat/a_eval.txt --test_root 'datasets/newdat/a_test.txt' --nega_eval 'datasets/newdat/nega_sample_a_eval.pkl' --nega_test 'datasets/newdat/nega_sample_a_test.pkl' --export 'ckpt_mlm.pth' 
+```
+
+And then shallow transfer the model to ML-1m-tgt:
+
+```
+python train_caser.py --kg 1 --train_root 'datasets/newdat/c_train.txt --eval_root 'datasets/newdat/c_eval.txt --test_root 'datasets/newdat/c_test.txt' --nega_eval 'datasets/newdat/nega_sample_b_eval.pkl' --nega_test 'datasets/newdat/nega_sample_b_test.pkl' --load 'ckpt_mlm.pth' --full 0 --export 'ckpt_test.pth' 
+```
+
