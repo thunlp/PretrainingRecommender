@@ -33,3 +33,7 @@ And then shallow transfer the model to ML-1m-tgt:
 python train_caser.py --kg 1 --train_root 'datasets/newdat/c_train.txt --eval_root 'datasets/newdat/c_eval.txt --test_root 'datasets/newdat/c_test.txt' --nega_eval 'datasets/newdat/nega_sample_b_eval.pkl' --nega_test 'datasets/newdat/nega_sample_b_test.pkl' --load 'ckpt_mlm.pth' --full 0 --export 'ckpt_test.pth' 
 ```
 
+## Experiment Result
+![image](https://user-images.githubusercontent.com/40881407/119127644-28923380-ba67-11eb-8104-2c61be98876a.png)
+
+
